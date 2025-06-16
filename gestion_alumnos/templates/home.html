@@ -1,0 +1,37 @@
+{% extends "mi_app/base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="text-center mb-4">🏫 Sistema Escolar</h2>
+    
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for item in items %}
+        <div class="col" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|add:1 }}00">
+            <div class="card shadow-lg h-100 border-0">
+                <img src="{{ item.image_url }}" class="card-img-top rounded-top" alt="{{ item.title }}">
+                <div class="card-body text-center">
+                    <h5 class="card-title">{{ item.icon }} {{ item.title }}</h5>
+                    <p class="card-text">{{ item.description }}</p>
+                    <a href="{% url item.url_name %}" class="btn btn-primary">Ver más</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Logout Section -->
+    <div class="text-center mt-5">
+        <form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Cerrar Sesión</button>
+        </form>
+    </div>
+</div>
+
+<!-- AOS (Animate On Scroll) Library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+    AOS.init();
+</script>
+{% endblock %}

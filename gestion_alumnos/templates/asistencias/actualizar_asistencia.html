@@ -1,0 +1,24 @@
+<form method="POST">
+    {% csrf_token %}
+
+    <!-- Campos ocultos para alumno y periodo -->
+    {{ form.alumno }}
+    {{ form.periodo }}
+
+    <div class="input-field">
+        {{ form.fecha.errors }}
+        {{ form.fecha.label_tag }}
+        {{ form.fecha }}
+    </div>
+    
+    <div class="input-field">
+        {{ form.estado.errors }}
+        {{ form.estado.label_tag }}
+        {{ form.estado }}
+    </div>
+
+    <div class="center-align">
+        <button type="submit" class="btn blue darken-2 waves-effect waves-light">💾 Guardar Cambios</button>
+        <a href="{% url 'listar_asistencias' %}" class="btn grey waves-effect">❌ Cancelar</a>
+    </div>
+</form>

@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Alex Sandro Cayllahua Chire | Java Developer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f4e4d1 0%, #e8d5c0 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .resume-container {
+            width: 800px;
+            height: 1000px;
+            background: #2a2a2a;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            position: relative;
+        }
+
+        .header {
+            background: linear-gradient(90deg, #ff7b39 0%, #ff7b39 70%, #fff 70%, #fff 100%);
+            height: 8px;
+        }
+
+        .main-content {
+            display: flex;
+            height: calc(100% - 8px);
+        }
+
+        .left-column {
+            width: 60%;
+            padding: 40px;
+            color: white;
+        }
+
+        .right-column {
+            width: 40%;
+            padding: 40px 30px;
+            color: white;
+        }
+
+        .name {
+            font-size: 40px;
+            font-weight: bold;
+            color: #ff7b39;
+            margin-bottom: 10px;
+            line-height: 1.1;
+        }
+
+        .title {
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #ff7b39;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        .description {
+            font-size: 12px;
+            line-height: 1.5;
+            margin-bottom: 25px;
+            color: #cccccc;
+        }
+
+        .progress-bar {
+            width: 200px;
+            height: 8px;
+            background: #444;
+            border-radius: 4px;
+            margin-bottom: 25px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff7b39 0%, #ff7b39 60%, #fff 60%, #fff 100%);
+            width: 100%;
+        }
+
+        .section-title {
+            font-size: 20px;
+            color: #ff7b39;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .experience-item {
+            display: flex;
+            margin-bottom: 16px;
+            align-items: flex-start;
+        }
+
+        .year-badge {
+            background: #444;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 11px;
+            font-weight: bold;
+            margin-right: 12px;
+            min-width: 50px;
+            text-align: center;
+            border: 2px solid #ff7b39;
+        }
+
+        .year-badge.highlight {
+            background: #ff7b39;
+            color: #2a2a2a;
+        }
+
+        .job-details h3 {
+            color: white;
+            font-size: 13px;
+            margin-bottom: 2px;
+            font-weight: bold;
+        }
+
+        .job-details .company {
+            color: #999;
+            font-size: 10px;
+            margin-bottom: 4px;
+        }
+
+        .job-details .description-small {
+            color: #ccc;
+            font-size: 10px;
+            line-height: 1.3;
+        }
+
+        .profile-image {
+            width: 180px;
+            height: 200px;
+            border-radius: 10px;
+            object-fit: cover;
+            margin-bottom: 25px;
+            border: 3px solid #ff7b39;
+        }
+
+        .education-item {
+            margin-bottom: 15px;
+        }
+
+        .education-year {
+            background: #ff7b39;
+            color: #2a2a2a;
+            padding: 3px 8px;
+            border-radius: 10px;
+            font-size: 10px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 4px;
+        }
+
+        .education-title {
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 2px;
+        }
+
+        .education-subtitle {
+            color: #999;
+            font-size: 10px;
+            line-height: 1.2;
+        }
+
+        .skills-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .skill-name {
+            font-size: 10px;
+            color: white;
+        }
+
+        .skill-dots {
+            display: flex;
+            gap: 2px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #444;
+        }
+
+        .dot.filled {
+            background: #ff7b39;
+        }
+
+        .contact-info {
+            position: absolute;
+            bottom: 25px;
+            left: 40px;
+            right: 40px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 10px;
+            color: #ff7b39;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .icon {
+            width: 12px;
+            height: 12px;
+            background: #ff7b39;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .banking-highlight {
+            background: rgba(255, 123, 57, 0.1);
+            border-left: 3px solid #ff7b39;
+            padding: 8px;
+            margin: 10px 0;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .banking-highlight .title {
+            color: #ff7b39;
+            font-size: 11px;
+            font-weight: bold;
+            margin-bottom: 3px;
+        }
+
+        .banking-highlight .description {
+            color: #ccc;
+            font-size: 10px;
+            line-height: 1.3;
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <div class="header"></div>
+        
+        <div class="main-content">
+            <div class="left-column">
+                <h1 class="name">Alex Sandro<br>Cayllahua Chire</h1>
+                <p class="title">JAVA DEVELOPER</p>
+                
+                <p class="description">
+                    Java Developer con sólida formación en Ingeniería de Software y Matemáticas. Experiencia en desarrollo backend con Spring Boot, microservicios, arquitectura hexagonal y sistemas empresariales. Conocimientos en sistemas bancarios core (Bantotal) y herramientas de desarrollo financiero. Apasionado por crear soluciones robustas y escalables.
+                </p>
+
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+
+                <h2 class="section-title">Experiencia Profesional</h2>
+                
+                <div class="experience-item">
+                    <div class="year-badge highlight">2025</div>
+                    <div class="job-details">
+                        <h3>Java Developer Junior</h3>
+                        <p class="company">NTT DATA Europe & Latam - Lima, Perú</p>
+                        <p class="description-small">Desarrollo backend con Java, Spring Boot, microservicios y arquitectura hexagonal. Bootcamp intensivo en WebFlux, patrones de diseño, principios SOLID, JPA/ORM, APIs REST y sistemas transaccionales.</p>
+                    </div>
+                </div>
+
+                <div class="banking-highlight">
+                    <div class="title">🏦 Formación Bancaria Especializada</div>
+                    <div class="description">Capacitación en sistema Bantotal (Core Banking) y conocimientos básicos en GenXus para desarrollo de aplicaciones financieras.</div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="year-badge">2024</div>
+                    <div class="job-details">
+                        <h3>Full Stack Java Developer</h3>
+                        <p class="company">Proyectos Independientes</p>
+                        <p class="description-small">Desarrollo de ERP empresarial con Java, Spring Boot, JPA, relaciones @ManyToMany. Sistema completo de gestión de clientes, productos e inventario con arquitectura MVC.</p>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="year-badge highlight">2024</div>
+                    <div class="job-details">
+                        <h3>Docente de Matemática y Estadística</h3>
+                        <p class="company">Zegel - Presencial</p>
+                        <p class="description-small">Enseñanza de conceptos matemáticos aplicados a sistemas, algoritmos y lógica de programación. Desarrollo de pensamiento analítico en estudiantes.</p>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="year-badge">2024</div>
+                    <div class="job-details">
+                        <h3>Python/Django Developer</h3>
+                        <p class="company">Proyectos Independientes</p>
+                        <p class="description-small">Desarrollo de sistema escolar con Django, gestión de asistencia y notas. ERP para ferretería con Python, manejo de inventario y ventas.</p>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="year-badge">2024</div>
+                    <div class="job-details">
+                        <h3>Analista de Datos RRHH</h3>
+                        <p class="company">Caja Arequipa - Híbrido</p>
+                        <p class="description-small">Análisis de datos en sector financiero, elaboración de reportes y apoyo en toma de decisiones. Experiencia en entorno bancario/financiero.</p>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="year-badge">2022</div>
+                    <div class="job-details">
+                        <h3>Especialista en Data Science</h3>
+                        <p class="company">IBM - Certificación Profesional</p>
+                        <p class="description-small">Formación avanzada en ciencia de datos, machine learning y herramientas IBM. Desarrollo de soluciones analíticas para toma de decisiones empresariales.</p>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="year-badge">2021</div>
+                    <div class="job-details">
+                        <h3>Especialista en Redes y Ciberseguridad</h3>
+                        <p class="company">Cisco - Certificación Profesional</p>
+                        <p class="description-small">Certificación en tecnologías Cisco, configuración de redes, seguridad cibernética y protocolos de comunicación para entornos empresariales.</p>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="year-badge">2020</div>
+                    <div class="job-details">
+                        <h3>Practicante Mantenimiento Industrial</h3>
+                        <p class="company">Sociedad Minera Cerro Verde S.A.A.</p>
+                        <p class="description-small">Control de procesos industriales, análisis de sistemas, manejo de OSIsoft PI para monitoreo de equipos críticos.</p>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="year-badge">2019</div>
+                    <div class="job-details">
+                        <h3>Desarrollador de Software</h3>
+                        <p class="company">Tusclasesparticulares - Freelance</p>
+                        <p class="description-small">Desarrollo de aplicaciones educativas, análisis de datos académicos y sistemas de gestión estudiantil con diversas tecnologías.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-column">
+                <img src="https://github.com/kair069.png" alt="Alex Sandro Cayllahua Chire" class="profile-image">
+                
+                <h2 class="section-title">Educación</h2>
+                
+                <div class="education-item">
+                    <div class="education-year">2022</div>
+                    <div class="education-title">Maestría en Estadística</div>
+                    <div class="education-subtitle">Universidad Nacional de San Antonio Abad del Cusco (UNSAAC)</div>
+                </div>
+
+                <div class="education-item">
+                    <div class="education-year">2023</div>
+                    <div class="education-title">Técnico en Desarrollo de Software</div>
+                    <div class="education-subtitle">CERTUS</div>
+                    <div class="education-subtitle">Java, Spring, Angular, JavaScript</div>
+                </div>
+
+                <div class="education-item">
+                    <div class="education-year">2023</div>
+                    <div class="education-title">Técnico en Ingeniería de Software con IA</div>
+                    <div class="education-subtitle">SENATI</div>
+                    <div class="education-subtitle">Java Enterprise, ASP.NET, AI</div>
+                </div>
+
+                <div class="education-item">
+                    <div class="education-year">2020</div>
+                    <div class="education-title">Bachiller en Matemáticas</div>
+                    <div class="education-subtitle">Universidad Nacional de San Agustín</div>
+                </div>
+
+                <h2 class="section-title" style="margin-top: 25px;">Habilidades Java & Backend</h2>
+                
+                <div class="skills-item">
+                    <span class="skill-name">Java & Spring Boot</span>
+                    <div class="skill-dots">
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                </div>
+
+                <div class="skills-item">
+                    <span class="skill-name">Microservicios</span>
+                    <div class="skill-dots">
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                </div>
+
+                <div class="skills-item">
+                    <span class="skill-name">Spring WebFlux</span>
+                    <div class="skill-dots">
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                </div>
+
+                <div class="skills-item">
+                    <span class="skill-name">JPA/Hibernate</span>
+                    <div class="skill-dots">
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                </div>
+
+                <div class="skills-item">
+                    <span class="skill-name">API REST</span>
+                    <div class="skill-dots">
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                </div>
+
+                <div class="skills-item">
+                    <span class="skill-name">Maven & Gradle</span>
+                    <div class="skill-dots">
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                </div>
+
+                <div class="skills-item">
+                    <span class="skill-name">Bases de Datos</span>
+                    <div class="skill-dots">
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                </div>
+
+                <div class="skills-item">
+                    <span class="skill-name">Git & Control Versiones</span>
+                    <div class="skill-dots">
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                </div>
+
+                <h2 class="section-title" style="margin-top: 20px;">Sistemas Bancarios</h2>
+                
+                <div class="skills-item">
+                    <span class="skill-name">Bantotal (Core Banking)</span>
+                    <div class="skill-dots">
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                </div>
+
+                <div class="skills-item">
+                    <span class="skill-name">GenXus</span>
+                    <div class="skill-dots">
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot filled"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-info">
+            <div class="contact-item">
+                <span class="icon"></span>
+                <span>acayllac@emeal.nttdata.com</span>
+            </div>
+            <div class="contact-item">
+                <span class="icon"></span>
+                <span>+51 968 269 924</span>
+            </div>
+            <div class="contact-item">
+                <span class="icon"></span>
+                <span>github.com/kair069</span>
+            </div>
+            <div class="contact-item">
+                <span class="icon"></span>
+                <span>linkedin.com/in/alex-sandro-cayllahua-chire-809b01201</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
